@@ -38,7 +38,7 @@ atlassian-ide-plugin.xml
 
 
 # Java artifacts
-*.jar
+
 *.war
 *.ear
 *.class
