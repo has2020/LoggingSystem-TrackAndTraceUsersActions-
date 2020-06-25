@@ -1,0 +1,28 @@
+filebeat.inputs:
+- type: docker
+  containers:
+    path: "/var/lib/docker/containers"
+    stream: "stdout"
+    ids:
+      - "*"
+    cri.parse_flags: true
+    combine_partial: true
+    exclude_files: ['\.gz$']
+
+  json.keys_under_root: true
+  json.add_error_key: true
+  enabled: true
+  encoding: utf-8
+  processors:
+  - add_docker_metadata: 
+      host: "unix:///var/run/docker.sock"
+  
+output:
+ logstash:  
+  enabled: true  
+  hosts:   
+      - logstash:5044
+
+logging.to_files: true
+logging.to_syslog: false
+loggins.metrice.enabled: false

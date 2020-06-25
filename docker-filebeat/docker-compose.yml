@@ -1,0 +1,8 @@
+filebeat:
+    build: .
+    user: root
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/lib/docker/containers:/var/lib/docker/containers
+    ports:
+      - "5044:5044
