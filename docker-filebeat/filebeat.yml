@@ -21,7 +21,7 @@ output:
  logstash:  
   enabled: true  
   hosts:   
-      - logstash:5044
+      - logstash:5000
 
 logging.to_files: true
 logging.to_syslog: false
